@@ -11,9 +11,12 @@ const app = express();
 app.use(express.json());
 
 // Add all the routes to our Express server
-// exported from routes/index.js
+// exported from routes/index.jsz
+// console.log(routes)
 routes.forEach(route => {
-    app[route.method](route.path, route.handler);
+    if (route!==undefined){
+        app[route.method](route.path, route.handler);
+    }
 });
 
 // Connect to the database, then start the server.
